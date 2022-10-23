@@ -1,6 +1,6 @@
 # The Bravest Wheel
 
-![The Bravest Wheel]("/Screenshots/Screenshot (1).png")
+![The Bravest Wheel](/Screenshots/Screenshot (1).png)
 
 Puzzle-platforming action with a bit of a spin. Rotate platforms to reach the goal.
 
