@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Kenney Assets/wheel.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://Kenney Assets/jump1.wav" type="AudioStream" id=3]
+[ext_resource path="res://WheelRim.tres" type="Material" id=4]
+[ext_resource path="res://Scenes/WheelSpoke.tres" type="Material" id=5]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.0601036, 0.0151595, 0.0862449 )
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 2 )
+speed = 10
+rot_speed = 4
+jump_speed = 8
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.242456, 0 )
+shape = SubResource( 1 )
+
+[node name="Model" type="Spatial" parent="."]
+
+[node name="Spatial" type="Spatial" parent="Model"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Model/Spatial"]
+transform = Transform( 0.970296, -0.241922, 0, 0.241922, 0.970296, 0, 0, 0, 1, -0.267581, -0.328863, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 5 )
+
+[node name="CameraRotate" type="Spatial" parent="."]
+
+[node name="Camera" type="Camera" parent="CameraRotate"]
+transform = Transform( -1, 3.60508e-08, -7.96435e-08, 0, 0.911015, 0.412373, 8.74228e-08, 0.412373, -0.911015, 0.00867701, 2.47901, -2.55069 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -6.0
+pitch_scale = 0.8

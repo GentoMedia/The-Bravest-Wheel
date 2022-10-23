@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/StartingBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/FallZone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=5]
+
+[node name="Level2" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.806867, 0.590732, 0, -0.590732, -0.806867, 0, 39.1138, -33.8351 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0374029, 258.281, 0.856853 )
+speed = 10
+rot_speed = 4
+jump_speed = 8
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[node name="StartingBlock" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0 )
+
+[node name="FallZone" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -32, 0 )
+
+[node name="Goal" parent="." instance=ExtResource( 5 )]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/light_curvedCross.obj-58d47d97b48c72d582e60c43b6af100c.mesh"
+
+[deps]
+
+files=[ "res://.import/light_curvedCross.obj-58d47d97b48c72d582e60c43b6af100c.mesh" ]
+
+source_file="res://Kenney Assets/light_curvedCross.obj"
+dest_files=[ "res://.import/light_curvedCross.obj-58d47d97b48c72d582e60c43b6af100c.mesh", "res://.import/light_curvedCross.obj-58d47d97b48c72d582e60c43b6af100c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

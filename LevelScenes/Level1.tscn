@@ -1,0 +1,297 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/StartingBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/FallZone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Pipe.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Tower.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/TallPalm.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/PalmShort.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Kenney Assets/cloud1.png" type="Texture" id=11]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+albedo_texture = ExtResource( 11 )
+
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
+
+[node name="Level1" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.806867, 0.590732, 0, -0.590732, -0.806867, 0, 39.1138, -33.8351 )
+
+[node name="Goal" parent="." instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 16.9185, 177.076 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.692, 1 )
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[node name="StartingBlock" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 22.2727, 0 )
+
+[node name="StartingBlock2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 14.9692, 67.883 )
+
+[node name="StartingBlock3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 14.9185, 175.595 )
+
+[node name="FallZone" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="LevelBits" type="Spatial" parent="."]
+
+[node name="Platform" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 5, 24.1805, 10 )
+color_tag = "Red"
+
+[node name="Platform2" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -5, 24.1805, 10 )
+color_tag = "Blue"
+
+[node name="Pipe" parent="LevelBits" instance=ExtResource( 7 )]
+transform = Transform( 0.978148, 0, 0.207912, 0, 1, 0, -0.207912, 0, 0.978148, -4.5, 25.9255, 19.577 )
+color_tag = "Blue"
+spin_axis = "z"
+
+[node name="Pipe2" parent="LevelBits" instance=ExtResource( 7 )]
+transform = Transform( 0.978148, 0, -0.207912, 0, 1, 0, 0.207912, 0, 0.978148, 4.5, 25.9255, 19.577 )
+color_tag = "Red"
+spin_axis = "z"
+
+[node name="Platform3" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 22.9395, 29.4955 )
+color_tag = "Blue"
+
+[node name="Platform4" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 22.9395, 38.3226 )
+color_tag = "Red"
+
+[node name="Tower" parent="LevelBits" instance=ExtResource( 8 )]
+transform = Transform( 0.342835, 0, -2.98035, 0, 3, 0, 2.98035, 0, 0.342835, 1.20206, 16.3495, 54.5777 )
+color_tag = "Blue"
+spin_axis = "y"
+
+[node name="Platform6" parent="LevelBits/Tower" instance=ExtResource( 6 )]
+transform = Transform( 0.114278, 0, 0.993449, 0, 1, 0, -0.993449, 0, 0.114278, -2.29991, 2.25338, 0.00105548 )
+color_tag = "Red"
+
+[node name="Platform5" parent="LevelBits/Tower" instance=ExtResource( 6 )]
+transform = Transform( 0.114278, 0, 0.993449, 0, 1, 0, -0.993449, 0, 0.114278, -0.0045433, 1.74303, 2.32542 )
+color_tag = "Red"
+
+[node name="Platform7" parent="LevelBits/Tower" instance=ExtResource( 6 )]
+transform = Transform( 0.114278, 0, 0.993449, 0, 1, 0, -0.993449, 0, 0.114278, 2.35378, 1.255, -0.00411654 )
+color_tag = "Red"
+
+[node name="Platform5" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 16.4745, 80.145 )
+color_tag = "Red"
+
+[node name="Platform6" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -5, 16.4745, 100.453 )
+color_tag = "Red"
+
+[node name="Platform7" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 5, 16.4745, 100.453 )
+color_tag = "Blue"
+
+[node name="Pipe3" parent="LevelBits" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.1835, 90.209 )
+color_tag = "Red"
+spin_axis = "x"
+
+[node name="Pipe4" parent="LevelBits" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 0.493274, 0.869874, 0, -0.869874, 0.493274, 0, 18.1835, 112.385 )
+color_tag = "Blue"
+spin_axis = "x"
+
+[node name="Pipe6" parent="LevelBits" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.1635, 144.357 )
+color_tag = "Blue"
+spin_axis = "x"
+
+[node name="Pipe9" parent="LevelBits" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 0.916265, 0.400573, 0, -0.400573, 0.916265, 0, 22.2183, 186.73 )
+color_tag = "Red"
+spin_axis = "x"
+spin_speed = 2
+
+[node name="Pipe7" parent="LevelBits" instance=ExtResource( 7 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -8, 21.1805, 162 )
+color_tag = "Red"
+spin_axis = "x"
+
+[node name="Pipe8" parent="LevelBits" instance=ExtResource( 7 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 8, 21.1805, 162 )
+color_tag = "Red"
+spin_axis = "y"
+
+[node name="Pipe5" parent="LevelBits" instance=ExtResource( 7 )]
+transform = Transform( -0.0385448, 0, -0.999257, 0, 1, 0, 0.999257, 0, -0.0385448, 0, 18.1835, 123.467 )
+color_tag = "Red"
+spin_axis = "y"
+
+[node name="Platform8" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -0.127195, 14.9685, 134.165 )
+color_tag = "Blue"
+
+[node name="Platform9" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 2.61166, 0, 1.47622, 0, 3, 0, -1.47622, 0, 2.61166, 0, 19.4435, 155.282 )
+color_tag = "Red"
+
+[node name="Platform10" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 2.96353, 0, -0.466355, 0, 3, 0, 0.466355, 0, 2.96353, -15, 19.4435, 169.657 )
+color_tag = "Blue"
+
+[node name="Platform11" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 0.281751, 0, -2.98674, 0, 3, 0, 2.98674, 0, 0.281751, 17.1636, 19.4899, 169.143 )
+color_tag = "Red"
+
+[node name="Platform12" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 2.21871, 0, -2.01923, 0, 3, 0, 2.01923, 0, 2.21871, 0, 22.398, 198.545 )
+color_tag = "Red"
+
+[node name="Platform13" parent="LevelBits" instance=ExtResource( 6 )]
+transform = Transform( 2.85213, 0, 0.930237, 0, 3, 0, -0.930237, 0, 2.85213, 11.9685, 22.3981, 195.909 )
+color_tag = "Red"
+
+[node name="Tower2" parent="LevelBits" instance=ExtResource( 8 )]
+transform = Transform( 0.551289, 0, 2.94892, 0, 3, 0, -2.94892, 0, 0.551289, 20.7176, 15.728, 183.621 )
+color_tag = "Blue"
+spin_axis = "y"
+
+[node name="Platform6" parent="LevelBits/Tower2" instance=ExtResource( 6 )]
+transform = Transform( 0.114278, 0, 0.993449, 0, 1, 0, -0.993449, 0, 0.114278, -2.29991, 2.25338, 0.00105548 )
+color_tag = "Red"
+
+[node name="Platform5" parent="LevelBits/Tower2" instance=ExtResource( 6 )]
+transform = Transform( 0.114278, 0, 0.993449, 0, 1, 0, -0.993449, 0, 0.114278, -0.0045433, 1.74303, 2.32542 )
+color_tag = "Red"
+
+[node name="Platform7" parent="LevelBits/Tower2" instance=ExtResource( 6 )]
+transform = Transform( 0.114278, 0, 0.993449, 0, 1, 0, -0.993449, 0, 0.114278, 2.35378, 1.255, -0.00411606 )
+color_tag = "Red"
+
+[node name="Trees" type="Spatial" parent="."]
+
+[node name="TallPalm" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 19.9585, 21.4063, 7.07805 )
+
+[node name="TallPalm2" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -27.5236, 21.4063, 49.5204 )
+
+[node name="PalmShort" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -22.8942, 24.58, 29.6153 )
+
+[node name="PalmShort2" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 20.1224, 18.4436, 47.6097 )
+
+[node name="TallPalm3" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.261194, 0, -3.99146, 0, 4, 0, 3.99146, 0, -0.261194, 20.2098, 14.8944, 128.221 )
+
+[node name="TallPalm4" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.261194, 0, -3.99146, 0, 4, 0, 3.99146, 0, -0.261194, -19.4807, 14.8944, 96.0563 )
+
+[node name="PalmShort3" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.261194, 0, -3.99146, 0, 4, 0, 3.99146, 0, -0.261194, 23.4569, 18.0681, 103.505 )
+
+[node name="PalmShort4" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.261194, 0, -3.99146, 0, 4, 0, 3.99146, 0, -0.261194, -26.8601, 11.9318, 143.321 )
+
+[node name="PalmShort5" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.261194, 0, -3.99146, 0, 4, 0, 3.99146, 0, -0.261194, 11.4717, 16.5994, 179.968 )
+
+[node name="TallPalm5" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( -3.96522, 0, -0.526327, -0.017074, 3.99789, 0.128632, 0.52605, 0.12976, -3.96313, -21.1756, 19.1666, 119.013 )
+
+[node name="TallPalm6" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( -3.96522, 0, -0.526327, -0.017074, 3.99789, 0.128632, 0.52605, 0.12976, -3.96313, 21.5826, 20.4229, 80.3076 )
+
+[node name="PalmShort6" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -3.96522, 0, -0.526327, -0.017074, 3.99789, 0.128632, 0.52605, 0.12976, -3.96313, 22.6952, 22.1816, 123.952 )
+
+[node name="PalmShort7" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -3.96522, -1.96072e-09, -0.526327, -0.017074, 3.99789, 0.128632, 0.52605, 0.12976, -3.96314, -26.212, 17.3959, 71.1816 )
+
+[node name="TallPalm7" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.26628, -1.96072e-09, 3.99113, 0.129472, 3.99789, 0.0086381, -3.98903, 0.12976, -0.266139, -21.8651, 23.691, 10.1371 )
+
+[node name="TallPalm8" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.26628, 0, 3.99113, 0.129472, 3.99789, 0.00863811, -3.98903, 0.12976, -0.26614, 24.196, 15.5756, 28.9161 )
+
+[node name="PalmShort8" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.26628, 0, 3.99113, 0.129472, 3.99789, 0.00863811, -3.98903, 0.12976, -0.26614, -36.8724, 18.8039, 27.2855 )
+
+[node name="PalmShort9" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.26628, -1.96072e-09, 3.99113, 0.129472, 3.99789, 0.0086381, -3.98903, 0.12976, -0.26614, 28.4141, 18.3541, 13.5449 )
+
+[node name="PalmShort10" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.26628, -1.96072e-09, 3.99113, 0.129472, 3.99789, 0.0086381, -3.98903, 0.12976, -0.26614, -35.0524, 19.8459, 14.3481 )
+
+[node name="TallPalm9" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.28021, 0, -3.99017, 0, 4, 0, 3.99017, 0, -0.28021, 49.2882, 21.4063, 169.863 )
+
+[node name="PalmShort11" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.28021, 0, -3.99017, 0, 4, 0, 3.99017, 0, -0.28021, 46.9361, 9.84048, 166.599 )
+
+[node name="PalmShort12" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.28021, 0, -3.99017, 0, 4, 0, 3.99017, 0, -0.28021, 30.379, 18.4436, 208.25 )
+
+[node name="TallPalm10" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( -3.96336, 0, 0.540165, 0, 4, 0, -0.540165, 0, -3.96336, -24.5158, 14.8944, 188.217 )
+
+[node name="PalmShort13" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -3.96336, 0, 0.540164, 0, 4, 0, -0.540164, 0, -3.96336, -25.6126, 18.0681, 207.66 )
+
+[node name="TallPalm11" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.246984, -0.129441, 3.99026, -0.017074, 3.99789, 0.128632, -3.99233, -0.00909001, -0.247407, -37.9559, 19.1666, 162.051 )
+
+[node name="TallPalm12" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.246984, -0.129441, 3.99027, -0.017074, 3.99789, 0.128632, -3.99233, -0.00909001, -0.247406, -2.34096, 20.4229, 220.488 )
+
+[node name="PalmShort14" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( -0.246984, -0.129441, 3.99026, -0.017074, 3.99789, 0.128632, -3.99233, -0.00909001, -0.247407, -45.956, 22.1816, 205.468 )
+
+[node name="TallPalm13" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( 3.99788, -0.129441, -0.0141025, 0.129472, 3.99789, 0.00863811, 0.0138158, -0.00909001, 3.99997, 45.5624, 15.5756, 196.142 )
+
+[node name="PalmShort16" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 3.99788, -0.129441, -0.0141025, 0.129472, 3.99789, 0.00863811, 0.0138158, -0.00909001, 3.99997, 50.2394, 18.8039, 152.819 )
+
+[node name="PalmShort17" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 3.99788, -0.129441, -0.0141025, 0.129472, 3.99789, 0.0086381, 0.0138158, -0.00909001, 3.99997, 54.0807, 14.1659, 204.443 )
+
+[node name="PalmShort18" parent="Trees" instance=ExtResource( 10 )]
+transform = Transform( 3.99788, -0.129441, -0.0141025, 0.129472, 3.99789, 0.0086381, 0.0138158, -0.00909001, 3.99997, 63.0176, 19.8459, 179.702 )
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7646, -198.602 )
+amount = 256
+lifetime = 600.0
+preprocess = 600.0
+mesh = SubResource( 2 )
+emission_shape = 2
+emission_box_extents = Vector3( 100, 1, 1 )
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.5
+
+[node name="CPUParticles2" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7646, 76.1908 )
+amount = 256
+lifetime = 600.0
+preprocess = 600.0
+mesh = SubResource( 2 )
+emission_shape = 2
+emission_box_extents = Vector3( 100, 1, 1 )
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.5

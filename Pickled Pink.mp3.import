@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Pickled Pink.mp3-fedde9e47bde511fcf0f99f8a4a39452.mp3str"
+
+[deps]
+
+source_file="res://Pickled Pink.mp3"
+dest_files=[ "res://.import/Pickled Pink.mp3-fedde9e47bde511fcf0f99f8a4a39452.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

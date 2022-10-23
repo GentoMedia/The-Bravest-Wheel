@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/crateItem.obj-d10031715ff2b931a62d0f70faea0922.mesh"
+
+[deps]
+
+files=[ "res://.import/crateItem.obj-d10031715ff2b931a62d0f70faea0922.mesh" ]
+
+source_file="res://Kenney Assets/crateItem.obj"
+dest_files=[ "res://.import/crateItem.obj-d10031715ff2b931a62d0f70faea0922.mesh", "res://.import/crateItem.obj-d10031715ff2b931a62d0f70faea0922.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

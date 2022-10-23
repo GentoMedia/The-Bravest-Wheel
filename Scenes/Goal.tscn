@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://PurplePlatform.tres" type="Material" id=1]
+[ext_resource path="res://Scripts/Goal.gd" type="Script" id=2]
+[ext_resource path="res://Kenney Assets/rugRound.obj" type="ArrayMesh" id=3]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.469464
+height = 0.0210431
+
+[sub_resource type="CylinderShape" id=2]
+radius = 0.474245
+height = 0.041362
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.968627, 1, 0, 1 )
+emission_enabled = true
+emission = Color( 0.968627, 1, 0, 1 )
+emission_energy = 16.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=4]
+material = SubResource( 3 )
+radius = 0.01
+height = 0.01
+
+[node name="Goal" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Platform1" type="KinematicBody" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Platform1"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platform1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.457907, 0.000770152, -0.461027 )
+mesh = ExtResource( 3 )
+material/0 = null
+material/1 = null
+material/2 = ExtResource( 1 )
+material/3 = null
+
+[node name="Area" type="Area" parent="Platform1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Platform1/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00934711, 0 )
+shape = SubResource( 2 )
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284207, 0 )
+amount = 16
+mesh = SubResource( 4 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+scale_amount = 8.0
+scale_amount_random = 1.0
+
+[connection signal="body_entered" from="Platform1/Area" to="." method="_on_Area_body_entered"]

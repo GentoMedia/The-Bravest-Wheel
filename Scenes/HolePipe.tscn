@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Kenney Assets/pipe_open.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Scripts/SpinningObject.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.70633, 0.491571, 5.02036 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.874651, 0.491571, 5.02036 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.906296, 0.491571, 5.02036 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1.71273, 0.498563, 1.27837 )
+
+[node name="HolePipe" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="RigidBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.50045, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, -2.57212, 0.546151, 0 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 2.17834, -1.23543, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="RigidBody"]
+transform = Transform( -0.5, -0.866025, 0, 0.866025, -0.5, 0, 0, 0, 1, 2.57107, 0.602882, 0 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="RigidBody"]
+transform = Transform( -0.5, -0.866025, 0, 0.866025, -0.5, 0, 0, 0, 1, -2.13855, -1.26419, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50558, -3.75646 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50558, 3.77484 )
+shape = SubResource( 4 )
+
+[node name="Models" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Models"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -2.99533, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
